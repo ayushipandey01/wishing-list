@@ -24,21 +24,21 @@ addTodoButton.addEventListener("click" , () => {
         todoList.push({id : uuid() , todo : todo , isCompleted : false})
     }
     renderTodoList(todoList);
-    localStorage.setItem("todo" , JSON.stringify(todoList));    todoInput.value = "";    
-})
+    localStorage.setItem("todo" , JSON.stringify(todoList));    
+    todoInput.value = "";    
+});
 
 showTodos.addEventListener("click" , (e) =>{
     let key = e.target.dataset.key;
     let delTodoKey = e.target.dataset.todokey;
     todoList = todoList.map(todo => todo.id === key ? {...todo , isCompleted : !todo.isCompleted} : todo);
     todoList = todoList.filter(todo => todo.id !== delTodoKey);
-    renderTodoList(todoList);
     localStorage.setItem("todo" , JSON.stringify(todoList));
-    console.log(todoList);
+    renderTodoList(todoList);
 });
 
 function renderTodoList(todoList){
-    showTodos.innerHTML = todoList.map(({id , todo , isCompleted}) => `<div><input id ="item-${id}" type="checkbox" ${isCompleted ? "checked" : ""} data-key = ${id}><label for ="item-${id}" class ="todo todo-text t-pointer ${isCompleted ? "checked-todo" : "" }" data-key =${id}>${todo}</label><button class ="del-button"><span data-todokey = ${id} class="material-icons-outlined">delete</span></button></div>`)
+    showTodos.innerHTML = todoList.map(({id , todo , isCompleted}) => `<div class ="todo relative" ><input id ="item-${id}" type="checkbox" ${isCompleted ? "checked" : ""} data-key = ${id}><label for ="item-${id}" class ="todo todo-text t-pointer ${isCompleted ? "checked-todo" : "" }" data-key =${id}>${todo}</label><button class ="absolute right-0 button cursor"><span del-button data-todokey = ${id} class="material-icons-outlined">delete</span></button></div>`)
 };
 
 renderTodoList(todoList);

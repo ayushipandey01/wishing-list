@@ -31,6 +31,7 @@ h1 {
     width: 25vw;
     margin-bottom: 0.5rem;
     margin-right: 0.5rem;
+    outline: none;
 }
 
 .button {
@@ -70,5 +71,5 @@ h1 {
 
 .del-button {
     color: blue;
-    cursor: pointer;    
+    cursor: pointer;   
 }
