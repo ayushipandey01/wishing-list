@@ -1,0 +1,22 @@
+body {
+    background-color: #bef264;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;   
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: brown;
+    color: white;
+    border: none;
+    margin : 1px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
