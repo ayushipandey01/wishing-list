@@ -5,7 +5,7 @@ let addTodoButton = document.querySelector(".add-button");
 let showTodos = document.querySelector(".todos-container");
 
 
-let todo;
+let todo ="";
 let localData = JSON.parse(localStorage.getItem("todo"));
 
 let todoList = localData || [];
@@ -22,11 +22,12 @@ addTodoButton.addEventListener("click" , (e) => {
     e.preventDefault();
     todo = todoInput.value;
     if(todo.length > 0 ){
-        todoList.push({id : uuid() , todo : todo , isCompleted : false})
-    }
-    renderTodoList(todoList);
-    localStorage.setItem("todo" , JSON.stringify(todoList));    
-    todoInput.value = "";    
+        todoList.push({id : uuid() , todo : todo , isCompleted : false
+        });    
+        renderTodoList(todoList);
+        localStorage.setItem("todo" , JSON.stringify(todoList));    
+        todoInput.value = "";   
+    } 
 });
 
 showTodos.addEventListener("click" , (e) =>{
@@ -40,8 +41,8 @@ showTodos.addEventListener("click" , (e) =>{
 });
 
 function renderTodoList(todoList){
-    showTodos.innerHTML = todoList.map(({id , todo , isCompleted}) => `<div class ="todo relative" ><input id ="item-${id}" type="checkbox" ${isCompleted ? "checked" : ""} data-key = ${id}><label for ="item-${id}" class ="todo todo-text t-pointer ${isCompleted ? "checked-todo" : "" }" data-key =${id}>${todo}</label><button class ="absolute right-0 button cursor"><span  data-todokey = ${id} class="del-button material-icons-outlined">delete</span></button></div>`)
-};
+    showTodos.innerHTML = todoList.map(({id, todo, isCompleted}) => `<div class ="todo relative" ><input id ="item-${id}" class="t-checkbox t-pointer" type="checkbox" ${isCompleted ? "checked" : ""} data-key = ${id}><label for "item-${id}" class ="todo-text t-pointer ${isCompleted ? "checked-todo" : "" }" data-key =${id}>${todo}</label><button class ="absolute right-0 button cursor"><span  data-todokey = ${id} class="del-button material-icons-outlined">delete</span></button></div>`);
+}
 
 renderTodoList(todoList);
 
