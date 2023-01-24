@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+@import url("https://uilight.netlify.app/main.css");@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 
 
 body {
@@ -14,7 +14,8 @@ body {
 
 h1 {
     display: flex;
-    justify-content: center;   
+    justify-content: center; 
+    margin-bottom: 30px;  
 }
 
 .input {
@@ -34,7 +35,7 @@ h1 {
     outline: none;
 }
 
-.button {
+.add-button {
     background-color: brown;
     color: white;
     border: none;
@@ -70,6 +71,5 @@ h1 {
 }
 
 .del-button {
-    color: blue;
-    cursor: pointer;   
+    color: blue;  
 }
